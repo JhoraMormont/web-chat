@@ -1,0 +1,18 @@
+{
+  "name": "web-chat",
+  "version": "1.0.0",
+  "description": "simple web-chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pm2 start index.js --watch --ignore-watch='node_modules'"
+  },
+  "author": "jhora",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "pm2": "^5.1.0",
+    "socket.io": "^4.1.3"
+  }
+}
