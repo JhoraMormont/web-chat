@@ -3,9 +3,10 @@ const httpServer = require('./server/server');
 
 const { PORT } = process.env;
 
-httpServer.listen(PORT, (err, res) => {
+httpServer.listen(PORT, err => {
   if (err) {
     console.error(err);
   }
+
   console.log(`Server listening on PORT: ${PORT}`);
 });
