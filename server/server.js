@@ -1,10 +1,14 @@
-const app = require('express')();
-const path = require('path');
-const httpServer = require('http').createServer(app);
-const io = require('socket.io')(httpServer);
+const express = require('express');
+const socketIo = require('socket.io');
+const http = require('http');
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views/index.html'));
+const app = express();
+const httpServer = http.createServer(app);
+const io = socketIo(httpServer, {
+  cors: {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST'],
+  },
 });
 
 io.on('connection', socket => {
