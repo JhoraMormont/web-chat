@@ -1,0 +1,11 @@
+.Messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.Messages > li {
+  padding: 0.5rem 1rem;
+}
+.Messages > li:nth-child(odd) {
+  background: #efefef;
+}

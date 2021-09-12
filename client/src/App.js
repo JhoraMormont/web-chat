@@ -1,5 +1,5 @@
 import React from 'react';
-import { io } from 'socket.io-client';
+import Messages from './Messages';
 import './App.css';
 
 class App extends React.Component {
@@ -10,13 +10,12 @@ class App extends React.Component {
       chatMessages: []
     };
 
-    this.socket = io('localhost:4000');
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   componentDidMount() {
-    this.socket.on('message', message => {
+    this.props.socket.on('message', message => {
       this.setState({
         chatMessages: [...this.state.chatMessages, message]
       });
@@ -35,7 +34,7 @@ class App extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.state.input) {
-      this.socket.emit('message', this.state.input);
+      this.props.socket.emit('message', this.state.input);
       this.setState({
         input: ''
       });
@@ -46,11 +45,7 @@ class App extends React.Component {
     const { chatMessages } = this.state;
     return (
       <div className="App">
-        <ul id="messages" className="Messages">
-          {chatMessages.map((message, index) => (
-            <li key={index}>{message}</li>
-          ))}
-        </ul>
+        <Messages messages={chatMessages} />
         <form id="form" className="ChatForm" onSubmit={this.handleSubmit}>
           <input
             id="input"
