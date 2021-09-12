@@ -7,8 +7,8 @@ const httpServer = http.createServer(app);
 const io = socketIo(httpServer, {
   cors: {
     origin: 'http://localhost:3000',
-    methods: ['GET', 'POST'],
-  },
+    methods: ['GET', 'POST']
+  }
 });
 
 io.on('connection', socket => {
@@ -19,7 +19,6 @@ io.on('connection', socket => {
   });
 
   socket.on('message', msg => {
-    console.log(msg);
     io.emit('message', msg);
   });
 });
