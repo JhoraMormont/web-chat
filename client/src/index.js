@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { io } from 'socket.io-client';
 
-const socketUrl = `localhost:4000`;
+const socketUrl = `${process.env.REACT_APP_SOCKET_HOST}:${process.env.REACT_APP_SOCKET_PORT}`;
 const socket = io(socketUrl);
 
 ReactDOM.render(
