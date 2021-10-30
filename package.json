@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "simple web-chat",
   "main": "index.js",
+  "engines": {
+    "node": ">=12.22.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "pm2 start index.js --watch --ignore-watch='node_modules'"
@@ -20,6 +23,7 @@
     "eslint-config-airbnb-base": "14.2.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-node": "11.1.0",
     "prettier": "2.3.2"
   }
 }
